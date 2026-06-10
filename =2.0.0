@@ -1,0 +1,4 @@
+Collecting flash-attn
+  Using cached flash_attn-2.8.3.post1.tar.gz (8.5 MB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'error'
