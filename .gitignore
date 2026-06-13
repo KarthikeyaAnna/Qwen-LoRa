@@ -31,3 +31,8 @@ runs/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Raw data and images
+data/desc_data.json
+data/images/
+data/coco/
