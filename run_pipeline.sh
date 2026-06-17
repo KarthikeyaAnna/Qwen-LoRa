@@ -10,8 +10,8 @@ if [ ! -d ".venv" ]; then
 fi
 source .venv/bin/activate
 
-echo "Installing requirements..."
-pip install -q -r requirements.txt
+echo "Installing requirements (this may take a few minutes for PyTorch)..."
+pip install -r requirements.txt
 
 # 2. Execute Pipeline
 echo ""

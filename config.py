@@ -26,6 +26,7 @@ class DPOHyperparams:
     beta: float = 0.1
     loss_type: str = "sigmoid"
     max_length: int = 4096
+    precompute_ref_log_probs: bool = False
     learning_rate: float = 5e-5
     num_train_epochs: int = 1
     per_device_train_batch_size: int = 2
@@ -46,7 +47,6 @@ class DPOHyperparams:
     remove_unused_columns: bool = False
     report_to: str = "tensorboard"
     output_dir: str = "outputs/qwen2vl-dpo-lora"
-    precompute_ref_log_probs: bool = True
 
 @dataclass
 class DataConfig:
