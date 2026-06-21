@@ -29,9 +29,9 @@ class DPOHyperparams:
     precompute_ref_log_probs: bool = False
     learning_rate: float = 5e-5
     num_train_epochs: int = 1
-    per_device_train_batch_size: int = 2
-    per_device_eval_batch_size: int = 2
-    gradient_accumulation_steps: int = 4
+    per_device_train_batch_size: int = 1
+    per_device_eval_batch_size: int = 1
+    gradient_accumulation_steps: int = 8
     gradient_checkpointing: bool = True
     bf16: bool = True
     logging_steps: int = 10
