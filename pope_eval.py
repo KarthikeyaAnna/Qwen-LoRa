@@ -38,6 +38,7 @@ def run_inference(model_path: str, image_path: str, question: str):
             **inputs,
             max_new_tokens=512,
             do_sample=False,
+            repetition_penalty=1.2,
         )
     
     generated_ids = output_ids[:, inputs.input_ids.shape[1]:]
