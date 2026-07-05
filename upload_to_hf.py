@@ -1,18 +1,18 @@
 import argparse
-from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
+from huggingface_hub import HfApi
 
 def upload(model_path: str, repo_id: str, private: bool = False, token: str = None):
-    print(f"Loading model from '{model_path}'...")
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
-        model_path,
-        torch_dtype="auto",
-        device_map="cpu",
-    )
-    processor = AutoProcessor.from_pretrained(model_path)
+    api = HfApi(token=token)
     
-    print(f"Pushing model and processor to Hugging Face Hub: {repo_id}...")
-    model.push_to_hub(repo_id, private=private, token=token)
-    processor.push_to_hub(repo_id, private=private, token=token)
+    print(f"Ensuring repository '{repo_id}' exists on Hugging Face Hub...")
+    api.create_repo(repo_id=repo_id, private=private, exist_ok=True)
+    
+    print(f"Uploading files from '{model_path}' directly to Hugging Face Hub (zero extra disk space used)...")
+    api.upload_folder(
+        folder_path=model_path,
+        repo_id=repo_id,
+        repo_type="model",
+    )
     print(f"\n🎉 Successfully uploaded to: https://huggingface.co/{repo_id}")
 
 def main():
